@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "declaration": false,
+    "types": ["vitest/globals"],
+    "baseUrl": "../..",
+    "paths": {
+      "@touchbar/protocol": ["packages/protocol/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}

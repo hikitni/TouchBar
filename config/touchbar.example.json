@@ -1,0 +1,333 @@
+{
+  "version": 2,
+  "server": {
+    "port": 8787,
+    "pairingTtlSeconds": 600
+  },
+  "applications": {
+    "qq_music": {
+      "name": "QQ 音乐",
+      "bundleId": "com.tencent.QQMusicMac",
+      "icon": "🎵"
+    }
+  },
+  "tabs": [
+    {
+      "id": "monitor",
+      "role": "monitor",
+      "title": "系统监控",
+      "icon": "📊",
+      "groups": [
+        {
+          "id": "system_resources",
+          "title": "系统资源",
+          "icon": "◫",
+          "kind": "metrics",
+          "columns": 4,
+          "items": [
+            {
+              "id": "sys_cpu",
+              "type": "status",
+              "label": "CPU",
+              "icon": "⚙️",
+              "statusKey": "cpu"
+            },
+            {
+              "id": "sys_memory",
+              "type": "status",
+              "label": "内存",
+              "icon": "🧠",
+              "statusKey": "memory"
+            },
+            {
+              "id": "sys_disk",
+              "type": "status",
+              "label": "磁盘",
+              "icon": "💽",
+              "statusKey": "disk"
+            },
+            {
+              "id": "sys_battery",
+              "type": "status",
+              "label": "电池",
+              "icon": "🔋",
+              "statusKey": "battery"
+            }
+          ],
+          "presentation": "tiles",
+          "span": "full"
+        },
+        {
+          "id": "device_agent",
+          "title": "设备与 Agent",
+          "icon": "⌁",
+          "kind": "metrics",
+          "columns": 3,
+          "items": [
+            {
+              "id": "device_info",
+              "type": "status",
+              "label": "系统信息",
+              "icon": "🍎",
+              "statusKey": "systemInfo"
+            },
+            {
+              "id": "device_network",
+              "type": "status",
+              "label": "本机网络",
+              "icon": "🌐",
+              "statusKey": "network"
+            },
+            {
+              "id": "device_uptime",
+              "type": "status",
+              "label": "运行时间",
+              "icon": "⏱",
+              "statusKey": "uptime"
+            },
+            {
+              "id": "device_actions",
+              "type": "status",
+              "label": "Agent 统计",
+              "icon": "⌁",
+              "statusKey": "actions"
+            }
+          ],
+          "presentation": "details",
+          "span": "full"
+        },
+        {
+          "id": "codex_today",
+          "title": "今日 AI 消费",
+          "icon": "◈",
+          "description": "汇总本机所有受 ccusage 支持的本地来源在今天的用量；每 10 分钟刷新，金额为 USD 估算，不等同于账单。",
+          "kind": "metrics",
+          "columns": 1,
+          "items": [
+            {
+              "id": "tokens_today",
+              "type": "tokenUsage",
+              "label": "今日 AI 消费"
+            }
+          ],
+          "presentation": "details",
+          "span": "full"
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "role": "control",
+      "title": "控制",
+      "icon": "◉",
+      "groups": [
+        {
+          "id": "qq_music_controls",
+          "title": "QQ 音乐",
+          "icon": "🎵",
+          "description": "先打开并激活 QQ 音乐，再发送已配置的键盘快捷键。",
+          "kind": "app",
+          "applicationId": "qq_music",
+          "columns": 4,
+          "items": [
+            {
+              "id": "qq_open",
+              "type": "button",
+              "label": "打开 QQ 音乐",
+              "icon": "↗",
+              "actionId": "qqmusic_launch"
+            },
+            {
+              "id": "qq_previous",
+              "type": "button",
+              "label": "上一首",
+              "icon": "⏮",
+              "actionId": "qqmusic_previous"
+            },
+            {
+              "id": "qq_play_pause",
+              "type": "button",
+              "label": "播放 / 暂停",
+              "icon": "⏯",
+              "actionId": "qqmusic_play_pause"
+            },
+            {
+              "id": "qq_next",
+              "type": "button",
+              "label": "下一首",
+              "icon": "⏭",
+              "actionId": "qqmusic_next"
+            }
+          ]
+        },
+        {
+          "id": "system_controls",
+          "title": "系统控制",
+          "icon": "⌘",
+          "kind": "section",
+          "columns": 2,
+          "items": [
+            {
+              "id": "system_volume",
+              "type": "slider",
+              "label": "系统音量",
+              "icon": "🔊",
+              "actionId": "volume_set",
+              "statusKey": "volume",
+              "min": 0,
+              "max": 100,
+              "step": 1
+            },
+            {
+              "id": "system_mute",
+              "type": "button",
+              "label": "切换静音",
+              "icon": "🔇",
+              "actionId": "volume_toggle_mute"
+            },
+            {
+              "id": "system_sleep",
+              "type": "button",
+              "label": "立即息屏",
+              "icon": "🌙",
+              "actionId": "system_display_sleep",
+              "confirm": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shortcuts",
+      "role": "shortcuts",
+      "title": "快捷方式",
+      "icon": "↗",
+      "groups": [
+        {
+          "id": "favorite_websites",
+          "title": "常驻网站",
+          "icon": "🌐",
+          "description": "点击后由 Mac 默认浏览器打开。",
+          "kind": "section",
+          "columns": 4,
+          "items": [
+            {
+              "id": "web_rebang",
+              "type": "button",
+              "label": "今日热榜",
+              "icon": "🔥",
+              "actionId": "open_rebang"
+            },
+            {
+              "id": "web_linux_do",
+              "type": "button",
+              "label": "Linux.do",
+              "icon": "🐧",
+              "actionId": "open_linux_do"
+            },
+            {
+              "id": "web_subapi",
+              "type": "button",
+              "label": "SubAPI 控制台",
+              "icon": "◈",
+              "actionId": "open_subapi"
+            },
+            {
+              "id": "web_doubao",
+              "type": "button",
+              "label": "豆包",
+              "icon": "🫘",
+              "actionId": "open_doubao"
+            }
+          ]
+        },
+        {
+          "id": "favorite_apps",
+          "title": "常驻应用",
+          "icon": "▦",
+          "kind": "section",
+          "columns": 1,
+          "items": [
+            {
+              "id": "app_qq_music",
+              "type": "button",
+              "label": "打开 QQ 音乐",
+              "icon": "🎵",
+              "actionId": "qqmusic_launch"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": {
+    "qqmusic_launch": {
+      "type": "launchApp",
+      "applicationId": "qq_music"
+    },
+    "qqmusic_previous": {
+      "type": "appShortcut",
+      "applicationId": "qq_music",
+      "key": "left",
+      "modifiers": [
+        "control",
+        "option",
+        "command"
+      ],
+      "activationTimeoutMs": 2000,
+      "keepForeground": true
+    },
+    "qqmusic_play_pause": {
+      "type": "appShortcut",
+      "applicationId": "qq_music",
+      "key": "space",
+      "modifiers": [
+        "control",
+        "option",
+        "command"
+      ],
+      "activationTimeoutMs": 2000,
+      "keepForeground": true
+    },
+    "qqmusic_next": {
+      "type": "appShortcut",
+      "applicationId": "qq_music",
+      "key": "right",
+      "modifiers": [
+        "control",
+        "option",
+        "command"
+      ],
+      "activationTimeoutMs": 2000,
+      "keepForeground": true
+    },
+    "volume_toggle_mute": {
+      "type": "volume",
+      "command": "toggleMute"
+    },
+    "volume_set": {
+      "type": "volume",
+      "command": "set"
+    },
+    "system_display_sleep": {
+      "type": "system",
+      "command": "displaySleep"
+    },
+    "open_rebang": {
+      "type": "openUrl",
+      "url": "https://rebang.today/"
+    },
+    "open_linux_do": {
+      "type": "openUrl",
+      "url": "https://linux.do/"
+    },
+    "open_subapi": {
+      "type": "openUrl",
+      "url": "https://example.com/dashboard"
+    },
+    "open_doubao": {
+      "type": "openUrl",
+      "url": "https://www.doubao.com/chat"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@touchbar/agent",
+  "version": "1.3.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "node scripts/build-native-helper.mjs && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "start": "node dist/index.js",
+    "devices": "node dist/index.js devices"
+  },
+  "dependencies": {
+    "@fastify/static": "^8.2.0",
+    "@fastify/websocket": "^11.2.0",
+    "@touchbar/protocol": "workspace:*",
+    "ccusage": "20.0.20",
+    "fastify": "^5.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/qrcode-terminal": "^0.12.2",
+    "@types/ws": "^8.5.14",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

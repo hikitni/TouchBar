@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+!.env.sample
+.touchbar-data/
+apps/agent/public/
+apps/agent/native/.build/
+
+# Local development evidence and QA artifacts, never product documentation.
+.local/
+
+# Generated local symbol index; source rules may still be shared.
+.codegraph/

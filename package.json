@@ -1,0 +1,20 @@
+{
+  "name": "http-touchbar",
+  "version": "1.3.0",
+  "private": true,
+  "description": "LAN HTTP/WebSocket browser-based Touch Bar companion for macOS",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @touchbar/agent --filter @touchbar/web dev",
+    "dev:agent": "pnpm --filter @touchbar/agent dev",
+    "dev:web": "pnpm --filter @touchbar/web dev",
+    "build": "pnpm --filter @touchbar/protocol build && pnpm --filter @touchbar/web build && pnpm --filter @touchbar/agent build",
+    "typecheck": "pnpm --filter @touchbar/protocol build && pnpm -r typecheck",
+    "test": "pnpm --filter @touchbar/protocol build && pnpm -r test",
+    "start": "pnpm --filter @touchbar/agent start",
+    "devices": "pnpm --filter @touchbar/agent devices"
+  }
+}
